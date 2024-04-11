@@ -5,7 +5,7 @@ import javax.swing.*;
 public class TextBox extends JPanel {
     public TextBox(String title) {
         label = new JLabel(title);
-        field = new JTextField();
+        field = new JTextField(10);
 
         this.add(label);
         this.add(field);

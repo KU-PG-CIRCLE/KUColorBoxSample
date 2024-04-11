@@ -37,8 +37,6 @@ public class RGBColorSamplePane extends TextBox implements DocumentListener {
 
     @Override
     public void changedUpdate(DocumentEvent e) {
-        System.out.println(e.getDocument().toString());
-        setPanelColor(e.getDocument().toString());
 
     }
 
