@@ -3,6 +3,7 @@ package info.ahaha;
 import info.ahaha.utils.TextBox;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.text.BadLocationException;
@@ -15,7 +16,8 @@ public class RGBColorSamplePane extends TextBox implements DocumentListener {
         super(title);
 
         colorPanel = new JPanel();
-        // colorPanel.setBorder(new );
+        LineBorder border = new LineBorder(Color.RED,2,true);
+        colorPanel.setBorder(border);
         colorPanel.setPreferredSize(new Dimension(50, 50));
         getField().getDocument().addDocumentListener(this);
 
