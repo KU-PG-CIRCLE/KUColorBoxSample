@@ -7,6 +7,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class RGBColorSamplePane extends TextBox implements DocumentListener {
     public RGBColorSamplePane(String title) {
@@ -24,23 +25,29 @@ public class RGBColorSamplePane extends TextBox implements DocumentListener {
 
     @Override
     public void insertUpdate(DocumentEvent e) {
-
+        System.out.println(e.getDocument().toString());
+        setPanelColor(e.getDocument().toString());
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
-
+        System.out.println(e.getDocument().toString());
+        setPanelColor(e.getDocument().toString());
     }
 
     @Override
     public void changedUpdate(DocumentEvent e) {
+        System.out.println(e.getDocument().toString());
+        setPanelColor(e.getDocument().toString());
 
     }
 
     public void setPanelColor(String string) {
         var rgbText = string.split(" +, +");
         // 文字列から数値に変更
-        var rgb = Arrays.stream(rgbText).map(Integer::parseInt).collect();
-        colorPanel.setBackground(new Color(rgb[0], rgb[1], rgb[2]));
+        var rgb = Arrays.stream(rgbText).map(Integer::parseInt).toList();
+        if (3 <= rgb.size())
+            return;
+        colorPanel.setBackground(new Color(rgb.get(0), rgb.get(1), rgb.get(2)));
     }
 }
