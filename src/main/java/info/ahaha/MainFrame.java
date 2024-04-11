@@ -27,7 +27,7 @@ public class MainFrame extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(800, 600);
 
-        rgbColorBox = new TextBox("R, G, B");
+        rgbColorBox = new RGBColorSamplePane("R, G, B");
 
         getContentPane().add(rgbColorBox);
     }

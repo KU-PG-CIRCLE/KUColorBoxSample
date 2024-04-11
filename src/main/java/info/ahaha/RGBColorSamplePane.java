@@ -5,6 +5,7 @@ import info.ahaha.utils.TextBox;
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -25,19 +26,35 @@ public class RGBColorSamplePane extends TextBox implements DocumentListener {
 
     @Override
     public void insertUpdate(DocumentEvent e) {
-        System.out.println(e.getDocument().toString());
-        setPanelColor(e.getDocument().toString());
+        var doc = e.getDocument();
+        try {
+            System.out.println(doc.getText(0, doc.getLength()));
+            setPanelColor(doc.getText(0, doc.getLength()));
+        } catch (BadLocationException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public void removeUpdate(DocumentEvent e) {
-        System.out.println(e.getDocument().toString());
-        setPanelColor(e.getDocument().toString());
+        var doc = e.getDocument();
+        try {
+            System.out.println(doc.getText(0, doc.getLength()));
+            setPanelColor(doc.getText(0, doc.getLength()));
+        } catch (BadLocationException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     @Override
     public void changedUpdate(DocumentEvent e) {
-
+        var doc = e.getDocument();
+        try {
+            System.out.println(doc.getText(0, doc.getLength()));
+            setPanelColor(doc.getText(0, doc.getLength()));
+        } catch (BadLocationException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     public void setPanelColor(String string) {
