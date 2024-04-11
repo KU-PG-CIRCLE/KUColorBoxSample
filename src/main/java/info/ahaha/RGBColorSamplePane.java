@@ -40,7 +40,7 @@ public class RGBColorSamplePane extends TextBox implements DocumentListener {
     public void setPanelColor(String string) {
         var rgbText = string.split(" +, +");
         // 文字列から数値に変更
-        var rgb = Arrays.stream(rgbText).map(Integer::parseInt).collect();
-        colorPanel.setBackground(new Color(rgb[0], rgb[1], rgb[2]));
+        // var rgb = Arrays.stream(rgbText).map(Integer::parseInt).collect();
+        // colorPanel.setBackground(new Color(rgb[0], rgb[1], rgb[2]));
     }
 }
